@@ -5,15 +5,48 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainMenu">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/profile1Button"
+        android:layout_width="313dp"
+        android:layout_height="48dp"
+        android:text="@string/button_profile_default"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/profile2Button"
+        android:layout_width="313dp"
+        android:layout_height="48dp"
+        android:text="@string/button_profile_default"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/profile3Button"
+        android:layout_width="313dp"
+        android:layout_height="48dp"
+        android:text="@string/button_profile_default"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.611" />
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="59dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="28dp"
+        android:text="@string/button_help"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
