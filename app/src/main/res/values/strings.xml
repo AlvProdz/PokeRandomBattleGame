@@ -2,4 +2,5 @@
     <string name="app_name">PokeRandomBattle</string>
     <string name="button_profile_default">New player</string>
     <string name="button_help">\?</string>
+    <string name="dialog_input_playername">Your name</string>
 </resources>
