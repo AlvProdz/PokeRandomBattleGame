@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainMenu">
 
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="372dp"
+        android:layout_height="328dp"
+        android:src="@mipmap/layer"
+        app:layout_constraintBottom_toTopOf="@+id/profile1Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/profile1Button"
         android:layout_width="313dp"

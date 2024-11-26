@@ -1,5 +1,6 @@
 package com.example.pokerandombattle.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -79,9 +80,17 @@ class MainMenu : AppCompatActivity() {
             .setPositiveButton("Save") { _, _ ->
                 player.name = String.valueOf(playerEditText.text)
                 playerDAO.update(player)
+                playGame(player)
             }
             .setNegativeButton("Cancel", null)
             .create()
         dialog.show()
     }
+
+    private fun playGame(player: Player) {
+        val intent = Intent(this, SelectTeamMembersActivity::class.java)
+        intent.putExtra(SelectTeamMembersActivity.PARAM_PLAYER_ID, player.id)
+        startActivity(intent)
+    }
+
 }

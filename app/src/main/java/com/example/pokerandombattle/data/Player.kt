@@ -5,5 +5,4 @@ data class Player(
     var name: String,
     var victories: Int,
     var defeats: Int
-) {
-}
+)

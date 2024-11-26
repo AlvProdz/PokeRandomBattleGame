@@ -38,7 +38,9 @@ android {
 }
 
 dependencies {
-
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.picasso)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
