@@ -34,31 +34,35 @@ class MainMenu : AppCompatActivity() {
         loadDBData()
 
         binding.profile1Button.setOnClickListener {
-            if(playerList[0].victories == 0 && playerList[0].defeats == 0) {
+            if(playerList[0].initiated == 0) {
                 newPlayerName(playerList[0])
             }
             else{
-                //newCombat(player)
+                playGame(playerList[0])
             }
         }
         binding.profile2Button.setOnClickListener {
-            if(playerList[1].victories == 0 && playerList[1].defeats == 0) {
+            if(playerList[1].initiated == 0) {
                 newPlayerName(playerList[1])
             }
             else{
-                //newCombat(player)
+                playGame(playerList[1])
             }
         }
         binding.profile3Button.setOnClickListener {
-            if(playerList[2].victories == 0 && playerList[2].defeats == 0) {
+            if(playerList[2].initiated == 0) {
                 newPlayerName(playerList[2])
             }
             else{
-                //newCombat(player)
+                playGame(playerList[2])
             }
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        updatePlayerListOnResume()
+    }
 
     private fun getPlayers(): List<Player>{
         val playerListTemp = playerDAO.getAllPlayers()
@@ -91,6 +95,10 @@ class MainMenu : AppCompatActivity() {
         val intent = Intent(this, SelectTeamMembersActivity::class.java)
         intent.putExtra(SelectTeamMembersActivity.PARAM_PLAYER_ID, player.id)
         startActivity(intent)
+    }
+
+    private fun updatePlayerListOnResume(){
+        loadDBData()
     }
 
 }

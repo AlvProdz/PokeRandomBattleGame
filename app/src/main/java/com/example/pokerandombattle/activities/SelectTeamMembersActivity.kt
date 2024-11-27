@@ -6,7 +6,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.pokerandombattle.R
+import com.example.pokerandombattle.adapters.PokemonAdapter
 import com.example.pokerandombattle.data.Pokemon
 import com.example.pokerandombattle.databinding.ActivitySelectTeamMembersBinding
 import com.example.pokerandombattle.utils.RetrofitManager
@@ -17,7 +19,8 @@ import kotlinx.coroutines.launch
 class SelectTeamMembersActivity : AppCompatActivity() {
     private val service = RetrofitManager.getRetrofit()
     private lateinit var binding: ActivitySelectTeamMembersBinding
-    private var pokemonList: MutableList<Pokemon> = mutableListOf()
+    private lateinit var adapter: PokemonAdapter
+    private var pokemonList: List<Pokemon> = emptyList()
 
     companion object {
         const val PARAM_PLAYER_ID = "PLAYER_ID"
@@ -27,26 +30,35 @@ class SelectTeamMembersActivity : AppCompatActivity() {
         binding = ActivitySelectTeamMembersBinding.inflate(layoutInflater)
         enableEdgeToEdge()
         setContentView(binding.root)
-        teamIDsGeneration()
+
+        adapter = PokemonAdapter(pokemonList) { superHeroItem ->
+            //navigateToDetail(superHeroItem)
+        }
+        binding.recyclerViewSelectableTeamMembers.adapter = adapter
+        binding.recyclerViewSelectableTeamMembers.layoutManager = GridLayoutManager(this, 3)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        generatePokemonTeam()
     }
 
-    private fun teamIDsGeneration(){
-        searchPokemonByID((1..150).random().toString())
-    }
-
-    private fun searchPokemonByID(query: String){
+    private fun generatePokemonTeam(){
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                var result = service.getPokemonByID(query)
-
+                var pokemonListGenerated: MutableList<Pokemon> = mutableListOf()
+                for(index in 1..9){
+                    var resultPokemon = service.getPokemonByID((1..150).random().toString())
+                    for (type in resultPokemon.types){
+                        var resultTypeDamageRelation = service.getTypeDamageRelationByTypeName(type.typeData.name)
+                        resultPokemon.damageRelations = resultTypeDamageRelation.damageRelations
+                    }
+                    pokemonListGenerated.add(resultPokemon)
+                }
                 CoroutineScope(Dispatchers.Main).launch {
-                    pokemonList.add(result)
-                    println(pokemonList)
+                    adapter.updateItems(pokemonListGenerated)
                 }
             } catch (e: Exception) {
                 Log.e("API", e.stackTraceToString())

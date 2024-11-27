@@ -18,6 +18,7 @@ class DatabaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
             "CREATE TABLE Player (" +
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "name TEXT," +
+                    "initiated INTEGER," +
                     "victories INTEGER," +
                     "defeats INTEGER)"
         private const val SQL_DELETE_TABLE = "DROP TABLE IF EXISTS Player"
@@ -27,6 +28,7 @@ class DatabaseManager(context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         db.execSQL(SQL_CREATE_TABLE)
         val values = ContentValues().apply {
             put("name", "New Player")
+            put("initiated", 0)
             put("victories", 0)
             put("defeats", 0)
         }

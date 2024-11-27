@@ -17,29 +17,12 @@ class PlayerDAO(private val context: Context){
     private fun closeDatabase() {
         db.close()
     }
-    /*
-    fun insert(player: Player) {
-        openDatabase()
-        val values = ContentValues().apply {
-            put("name", player.name)
-            put("victories", 0)
-            put("defeats", 0)
-        }
-
-        try {
-            val id = db.insert("Player", null, values)
-        } catch (e: Exception) {
-            Log.e("DB", e.stackTraceToString())
-        } finally {
-            closeDatabase()
-        }
-    }
-     */
 
     fun update(player: Player) {
         openDatabase()
         val values = ContentValues().apply {
             put("name", player.name)
+            put("initiated", 1)
             put("victories", player.victories)
             put("defeats", player.defeats)
         }
@@ -51,19 +34,6 @@ class PlayerDAO(private val context: Context){
             closeDatabase()
         }
     }
-    /*
-    fun delete(player: Player) {
-        openDatabase()
-        try {
-            // Delete the existing row, returning the number of affected rows
-            val deletedRows = db.delete("Player", "id = ${player.id}", null)
-        } catch (e: Exception) {
-            Log.e("DB", e.stackTraceToString())
-        } finally {
-            closeDatabase()
-        }
-    }
-     */
 
     fun getPlayerByID(id: Long) : Player? {
         openDatabase()
@@ -83,10 +53,11 @@ class PlayerDAO(private val context: Context){
             if (cursor.moveToNext()) {
                 val id = cursor.getLong(cursor.getColumnIndexOrThrow("id"))
                 val name = cursor.getString(cursor.getColumnIndexOrThrow("name"))
+                val initiated = cursor.getInt(cursor.getColumnIndexOrThrow("initiated"))
                 val victories = cursor.getInt(cursor.getColumnIndexOrThrow("victories"))
                 val defeats = cursor.getInt(cursor.getColumnIndexOrThrow("defeats"))
 
-                return Player(id, name, victories, defeats)
+                return Player(id, name, initiated, victories, defeats)
             }
         } catch (e: Exception) {
             Log.e("DB", e.stackTraceToString())
@@ -103,7 +74,7 @@ class PlayerDAO(private val context: Context){
 
         // Define a projection that specifies which columns from the database
         // you will actually use after this query.
-        val projection = arrayOf("id", "name", "victories", "defeats")
+        val projection = arrayOf("id", "name", "initiated", "victories", "defeats")
 
         try {
             val cursor = db.query(
@@ -119,10 +90,11 @@ class PlayerDAO(private val context: Context){
             while (cursor.moveToNext()) {
                 val id = cursor.getLong(cursor.getColumnIndexOrThrow("id"))
                 val name = cursor.getString(cursor.getColumnIndexOrThrow("name"))
+                val initiated = cursor.getInt(cursor.getColumnIndexOrThrow("initiated"))
                 val victories = cursor.getInt(cursor.getColumnIndexOrThrow("victories"))
                 val defeats = cursor.getInt(cursor.getColumnIndexOrThrow("defeats"))
 
-                val player = Player(id, name, victories, defeats)
+                val player = Player(id, name, initiated, victories, defeats)
                 list.add(player)
             }
         } catch (e: Exception) {

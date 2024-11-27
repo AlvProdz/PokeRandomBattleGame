@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="140dp"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardPokemon"
+        android:layout_width="138dp"
+        android:layout_height="153dp"
+        app:cardCornerRadius="20dp"
+        app:cardBackgroundColor="@color/pokemonSelector">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/pokemonImageView"
+                android:layout_width="match_parent"
+                android:layout_height="111dp"
+                android:contentDescription="TODO"
+                android:scaleType="centerCrop" />
+            <TextView
+                android:id="@+id/pokemonName"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_gravity="center"
+                android:gravity="center_horizontal|center_vertical"
+                android:textAlignment="gravity"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                tools:text="Superhero name" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</GridLayout>
