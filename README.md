@@ -42,6 +42,6 @@ This is how i implemented the several requirements inside the project and how th
 
 | Extra PointsRequirement | Implementation |
 | ----------- | ----------- |
-| Internationalization (At least one language) | I am using the viewBinding feature in every Activity |
+| Internationalization (At least one language) | Using the Strings resources in English  |
 | Use of viewBinding | I am using the viewBinding feature in every Activity |
 
