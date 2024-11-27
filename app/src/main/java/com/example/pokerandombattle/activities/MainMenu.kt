@@ -71,9 +71,27 @@ class MainMenu : AppCompatActivity() {
 
     private fun loadDBData(){
         playerList = getPlayers()
-        binding.profile1Button.text = playerList[0].name
-        binding.profile2Button.text = playerList[1].name
-        binding.profile3Button.text = playerList[2].name
+        binding.profile1Button.text = buildString {
+            append(playerList[0].name)
+            append("  ")
+            append(playerList[0].victories)
+            append("/")
+            append(playerList[0].defeats)
+        }
+        binding.profile2Button.text = buildString {
+            append(playerList[1].name)
+            append("  ")
+            append(playerList[1].victories)
+            append("/")
+            append(playerList[1].defeats)
+        }
+        binding.profile3Button.text = buildString {
+            append(playerList[2].name)
+            append("  ")
+            append(playerList[2].victories)
+            append("/")
+            append(playerList[2].defeats)
+        }
     }
 
     private fun newPlayerName(player: Player){
