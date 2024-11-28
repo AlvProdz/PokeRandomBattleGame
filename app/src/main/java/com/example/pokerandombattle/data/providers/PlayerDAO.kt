@@ -37,7 +37,7 @@ class PlayerDAO(private val context: Context){
 
     fun getPlayerByID(id: Long) : Player? {
         openDatabase()
-        val projection = arrayOf("id", "name", "victories", "defeats")
+        val projection = arrayOf("id", "name", "initiated", "victories", "defeats")
 
         try {
             val cursor = db.query(

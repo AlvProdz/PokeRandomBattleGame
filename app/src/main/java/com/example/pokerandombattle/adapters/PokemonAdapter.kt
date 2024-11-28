@@ -3,6 +3,7 @@ package com.example.pokerandombattle.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.pokerandombattle.data.Player
 import com.example.pokerandombattle.data.Pokemon
 import com.example.pokerandombattle.databinding.ItemPokemonBinding
 import com.squareup.picasso.Picasso

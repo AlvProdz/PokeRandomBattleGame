@@ -3,4 +3,7 @@
     <string name="button_profile_default">New player</string>
     <string name="button_help">\?</string>
     <string name="dialog_input_playername">Your name</string>
+    <string name="touchToContinue">Touch to continue</string>
+    <string name="enemyPokemonAnnounce">"You enemy chooses: "</string>
+    <string name="yourPokemonAnnounce">You have chosen:</string>
 </resources>

@@ -1,9 +1,8 @@
 package com.example.pokerandombattle.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.window.OnBackInvokedDispatcher
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -29,6 +28,7 @@ class SelectTeamMembersActivity : AppCompatActivity() {
     private var pokemonList: List<Pokemon> = emptyList()
 
     companion object {
+        const val PARAM_POKEMON_ID = "POKEMON_ID"
         const val PARAM_PLAYER_ID = "PLAYER_ID"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,21 +37,11 @@ class SelectTeamMembersActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
-        adapter = PokemonAdapter(pokemonList) { superHeroItem ->
-            //navigateToDetail(superHeroItem)
+        adapter = PokemonAdapter(pokemonList) { pokemonItem ->
+            goToCombat(pokemonItem)
         }
         binding.recyclerViewSelectableTeamMembers.adapter = adapter
         binding.recyclerViewSelectableTeamMembers.layoutManager = GridLayoutManager(this, 3)
-
-//        onBackPressedDispatcher.addCallback(
-//            this /* lifecycle owner */,
-//            object : OnBackPressedCallback(true) {
-//                override fun handleOnBackPressed() {
-//                    player.defeats++
-//                    playerDAO.update(player)
-//                    finish()
-//                }
-//            })
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -66,11 +56,11 @@ class SelectTeamMembersActivity : AppCompatActivity() {
     private fun generatePokemonTeam(){
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                var pokemonListGenerated: MutableList<Pokemon> = mutableListOf()
+                val pokemonListGenerated: MutableList<Pokemon> = mutableListOf()
                 for(index in 1..9){
-                    var resultPokemon = service.getPokemonByID((1..150).random().toString())
+                    val resultPokemon = service.getPokemonByID((1..150).random().toString())
                     for (type in resultPokemon.types){
-                        var resultTypeDamageRelation = service.getTypeDamageRelationByTypeName(type.typeData.name)
+                        val resultTypeDamageRelation = service.getTypeDamageRelationByTypeName(type.typeData.name)
                         resultPokemon.damageRelations = resultTypeDamageRelation.damageRelations
                     }
                     pokemonListGenerated.add(resultPokemon)
@@ -85,17 +75,17 @@ class SelectTeamMembersActivity : AppCompatActivity() {
     }
 
     private fun getPlayer(id: Long) {
-
-        CoroutineScope(Dispatchers.IO).launch {
-            try {
                 player = playerDAO.getPlayerByID(id)!!
                 CoroutineScope(Dispatchers.Main).launch {
                     println(player)
                 }
-            } catch (e: Exception) {
-                Log.e("API", e.stackTraceToString())
-            }
-        }
     }
 
+    private fun goToCombat(pokemon: Pokemon, player: Player = this.player){
+        val intent = Intent(this, CombatActivity::class.java)
+        intent.putExtra(CombatActivity.PARAM_POKEMON_ID, pokemon.id)
+        intent.putExtra(CombatActivity.PARAM_PLAYER_ID, player.id)
+        startActivity(intent)
+
+    }
 }
