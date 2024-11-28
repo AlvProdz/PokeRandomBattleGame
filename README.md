@@ -21,7 +21,7 @@ Poke Random Battle is a Pokemon fan game created in Android Studio as a project 
 ## Installing and Executing<a name="installing"></a>
 
 1. Clone this repository using the console, a git client or Android Studio: 
-> git clone https://github.com/AlvProdz/PokeRandomBattleGame.git
+> git clone https://github.com/alvaroperera/PokeRandomBattleGame.git
 2. Use Android Studio to open the project
 3. Execute the gradle sync (if needed)
 4. Press play to try the app in some Android Emmulator in your machine.
