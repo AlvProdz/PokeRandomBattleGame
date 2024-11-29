@@ -1,5 +1,6 @@
 package com.example.pokerandombattle.activities
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -26,6 +27,7 @@ class CombatActivity : AppCompatActivity() {
     private lateinit var pokemon: Pokemon
     private lateinit var enemyPokemon: Pokemon
     private var stateCombat: String = "PREPARING"
+    private var resultMatch: String = ""
 
     companion object {
         const val PARAM_PLAYER_ID = "PLAYER_ID"
@@ -48,16 +50,18 @@ class CombatActivity : AppCompatActivity() {
         binding.touchToContinue.setOnClickListener {
             when(stateCombat){
                 "YOUR_POKEMON" -> {
+                    stateCombat = "ENEMY_POKEMON"
                     getEnemyPokemon()
                     changeButtonColorToRedAndTextToFight()
-                    stateCombat = "ENEMY_POKEMON"
                 }
                 "ENEMY_POKEMON" -> {
-                    changeButtonToContinue()
                     stateCombat = "FIGHTING"
+                    resultMatch = pokemonFight(pokemon, enemyPokemon)
+                    changeButtonToContinue()
                 }
                 "FIGHTING" -> {
-                    pokemonFight(pokemon, enemyPokemon)
+                    stateCombat = "RESULTS"
+                    setResultAndFinishGame(resultMatch)
                 }
             }
         }
@@ -211,5 +215,19 @@ class CombatActivity : AppCompatActivity() {
             }
         }
         return finalEnemyPokemonPoints
+    }
+
+    private fun setResultAndFinishGame(result: String){
+
+        when(result){
+            getString(R.string.victory) -> player.victories += 1
+            getString(R.string.defeat) -> player.defeats += 1
+        }
+        playerDAO.update(player)
+
+        val intent = Intent(this, MainMenu::class.java)
+        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
     }
 }
