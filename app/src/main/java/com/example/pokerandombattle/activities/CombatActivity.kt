@@ -195,7 +195,7 @@ class CombatActivity : AppCompatActivity() {
                 finalMyPokemonPoints += 5
             }
             if(enemyPokemonImmuneAgainstTypes.contains(type)){
-                finalMyPokemonPoints + 0
+                finalMyPokemonPoints += 0
             }
         }
         return finalMyPokemonPoints
@@ -211,7 +211,7 @@ class CombatActivity : AppCompatActivity() {
                 finalEnemyPokemonPoints += 5
             }
             if(myPokemonImmuneAgainstTypes.contains(type)){
-                finalEnemyPokemonPoints + 0
+                finalEnemyPokemonPoints += 0
             }
         }
         return finalEnemyPokemonPoints

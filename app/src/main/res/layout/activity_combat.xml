@@ -13,21 +13,30 @@
         android:layout_height="400dp"
         android:layout_marginTop="16dp"
         app:cardCornerRadius="20dp"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@mipmap/combat_zone_image"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="412dp"
+                android:layout_height="378dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:scaleType="fitXY"
+                app:srcCompat="@mipmap/combat_zone_image_foreground" />
+
+            <ImageView
                 android:id="@+id/myPokemonIMG"
                 android:layout_width="157dp"
                 android:layout_height="157dp"
-                android:layout_marginTop="216dp"
+                android:layout_marginTop="156dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.062"
                 app:layout_constraintStart_toStartOf="parent"
@@ -35,13 +44,14 @@
 
             <ImageView
                 android:id="@+id/enemyPokemonIMG"
-                android:layout_width="157dp"
-                android:layout_height="157dp"
-                android:layout_marginTop="100dp"
+                android:layout_width="121dp"
+                android:layout_height="112dp"
+                android:layout_marginTop="116dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.937"
+                app:layout_constraintHorizontal_bias="0.832"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
