@@ -132,7 +132,7 @@ class CombatActivity : AppCompatActivity() {
     }
 
     private fun changeButtonToContinue(){
-        binding.touchToContinue.setBackgroundColor(Color.parseColor("#63519F"))
+        binding.touchToContinue.setBackgroundColor(Color.parseColor("#0768B7"))
         binding.touchToContinue.text = getString(R.string.touchToContinue)
         binding.touchToContinue.textSize = 20.0F
     }
@@ -201,7 +201,7 @@ class CombatActivity : AppCompatActivity() {
         return finalMyPokemonPoints
     }
 
-    private fun calculatePointsEnemyPokemon(enemyPokemonTypesList: List<String>, myPokemonVulnerableTypes: List<String>, myPokemonBadAgainstTypes: List<String>, myPokemonImmuneAgainstTypes: List<String,> ): Int {
+    private fun calculatePointsEnemyPokemon(enemyPokemonTypesList: List<String>, myPokemonVulnerableTypes: List<String>, myPokemonBadAgainstTypes: List<String>, myPokemonImmuneAgainstTypes: List<String> ): Int {
         var finalEnemyPokemonPoints = 0
         for(type in enemyPokemonTypesList){
             if(myPokemonVulnerableTypes.contains(type)){

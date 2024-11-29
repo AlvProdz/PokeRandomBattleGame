@@ -23,6 +23,7 @@
         android:layout_width="313dp"
         android:layout_height="48dp"
         android:text="@string/button_profile_default"
+        app:backgroundTint="#0768B7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +35,7 @@
         android:layout_width="313dp"
         android:layout_height="48dp"
         android:text="@string/button_profile_default"
+        app:backgroundTint="#0768B7"
         app:layout_constraintBottom_toTopOf="@+id/profile3Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,20 +47,11 @@
         android:layout_width="313dp"
         android:layout_height="48dp"
         android:text="@string/button_profile_default"
+        app:backgroundTint="#0768B7"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.639" />
-
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="59dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="28dp"
-        android:text="@string/button_help"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

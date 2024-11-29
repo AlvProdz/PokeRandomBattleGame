@@ -70,7 +70,7 @@ class PlayerDAO(private val context: Context){
     fun getAllPlayers() : List<Player> {
         openDatabase()
 
-        var list: MutableList<Player> = mutableListOf()
+        val list: MutableList<Player> = mutableListOf()
 
         // Define a projection that specifies which columns from the database
         // you will actually use after this query.

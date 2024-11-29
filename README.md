@@ -29,15 +29,15 @@ Poke Random Battle is a Pokemon fan game created in Android Studio as a project 
 ## Project Requirements<a name="requirements"></a>
 This is how i implemented the several requirements inside the project and how they work:
 
-| Requirement | Implementation |
-| ----------- | ----------- |
-| At least 3 activities | Project has 4 different activities: <ul><li>MainMenu to select player profile</li> <li>SelectTeamMembersActivity to select the Pokemon you want to play with</li><li>CombatActivity where the combat take place</li><li>ResultActivity where you recieve the final result of the combat</li>After that you will be taken back to the Main Menu</ul>
-| At least 1 extra parameterbe sent to another activity | Multiple extra parameters are being sent to other activities such as <ul><li>PARAM_PLAYER_ID to keep the info about the player</li> <li>PARAM_POKEMON_ID to track the info of the pokemon you are playing with</li></ul>|
-| At least 1 dialogue as a reaction of an user action| Multiple dialogues are being shown as a reaction such as: <ul><li>When user is typing his name creating a new game</li><li>After selecting a Pokemon as your combat option to confirm the choice</li><li>If the user tries to leave the combat or anyplace to be sent back to the main menu the user will be warned that will cause a defeat in the profile of that player</li></ul>|
-| At least one value saved in SharedPreferences | I decided to keep this out of the project as i am already implementing a DB and API calls |
-| At least one Data Base Table to store relevant data of the app | I am using SQLite to store the Player information in the table "Player" so i can retrieve if the player has been initialized, the number of victories and defeats|
-| App must be able to perform API REST calls| The app perform API Calls to the PokeAPI to get the Pokemon info needed for combat|
-| Use of a RecyclerView to list elements and capture at least one onClick event with a lambda function| The SelectTeamMembersActivity has a RecyclerView to show the possible combat options and tracks the onClick event in all the items to get ready to combat after the confirmation of the dialogue|
+| Requirement                                                                                          | Implementation |
+|------------------------------------------------------------------------------------------------------| ----------- |
+| At least 3 activities                                                                                | Project has 3 different activities: <ul><li>MainMenu to select player profile</li> <li>SelectTeamMembersActivity to select the Pokemon you want to play with</li><li>CombatActivity where the combat take place and the results are given </li>After that you will be taken back to the Main Menu</ul>
+| At least 1 extra parameter to be sent to another activity                                            | Multiple extra parameters are being sent to other activities such as <ul><li>PARAM_PLAYER_ID to keep the info about the player</li> <li>PARAM_POKEMON_ID to track the info of the pokemon you are playing with</li></ul>|
+| At least 1 dialogue as a reaction of an user action                                                  | Multiple dialogues are being shown as a reaction such as: <ul><li>When user is typing his name creating a new game</li><li>After selecting a Pokemon as your combat option to confirm the choice</li></ul>|
+| At least one value saved in SharedPreferences                                                        | I decided to keep this out of the project as i am already implementing a DB and API calls |
+| At least one Data Base Table to store relevant data of the app                                       | I am using SQLite to store the Player information in the table "Player" so i can retrieve if the player has been initialized, the number of victories and defeats|
+| App must be able to perform API REST calls                                                           | The app perform API Calls to the PokeAPI to get the Pokemon info needed for combat|
+| Use of a RecyclerView to list elements and capture at least one onClick event with a lambda function | The SelectTeamMembersActivity has a RecyclerView to show the possible combat options and tracks the onClick event in all the items to get ready to combat after the confirmation of the dialogue|
 
 
 | Extra PointsRequirement | Implementation |

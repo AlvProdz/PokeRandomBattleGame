@@ -19,15 +19,10 @@ data class Vulnerability(
 data class StrongAgainst(
     @SerializedName("name") var name: String
 )
-data class GoodAgainst(
-    @SerializedName("name") var name: String
-)
+
 data class BadAgainst(
     @SerializedName("name") var name: String
 )
 data class ImmuneAgainst(
-    @SerializedName("name") var name: String
-)
-data class TerribleAgainst(
     @SerializedName("name") var name: String
 )

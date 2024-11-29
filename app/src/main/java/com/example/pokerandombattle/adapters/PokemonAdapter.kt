@@ -3,7 +3,6 @@ package com.example.pokerandombattle.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.pokerandombattle.data.Player
 import com.example.pokerandombattle.data.Pokemon
 import com.example.pokerandombattle.databinding.ItemPokemonBinding
 import com.squareup.picasso.Picasso
@@ -35,7 +34,7 @@ class PokemonAdapter(private var items: List<Pokemon>, val onItemClick: (Pokemon
 class PokemonViewHolder(private val binding: ItemPokemonBinding) : RecyclerView.ViewHolder(binding.root) {
 
     fun init(pokemon: Pokemon) {
-        binding.pokemonName.text = pokemon.name
+        binding.pokemonName.text = pokemon.name.replaceFirstChar { it.titlecase() }
         Picasso.get().load(pokemon.sprites.otherSprites.officialArtWork.frontImgURL).into(binding.pokemonImageView)
         // binding.cardHero.setCardBackgroundColor(pokemon.getAlignmentColor())
     }

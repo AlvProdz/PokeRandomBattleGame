@@ -10,9 +10,16 @@
     <string name="victory">victory</string>
     <string name="defeat">defeat</string>
     <string name="draw">draw</string>
-    <string name="yourPokemonWonAnnounce">" has defeated the "</string>
+    <string name="yourPokemonWonAnnounce">" has defeated the enemy "</string>
     <string name="yourPokemonWonReason">" because its type is stronger. Congratulations!"</string>
-    <string name="yourPokemonLostAnnounce">" has been defeated by the"</string>
+    <string name="yourPokemonLostAnnounce">" has been defeated by the "</string>
     <string name="yourPokemonLostReason">" enemy. Because the enemy pokemon type was stronger. Better luck next time!"</string>
     <string name="DrawAnnounceReason">Both pokemon were really strong against each other. No one wins, but no one loses either. See you in the next combat!</string>
+    <string name="save_dialogue_option">Save</string>
+    <string name="cancel_dialogue_option">Cancel</string>
+    <string name="create_player_name_dialogue_title">Create player name</string>
+    <string name="select_pokemon_message">" is your choice to play?"</string>
+    <string name="select_pokemon_confirmation_dialogue_title">Pokemon selection</string>
+    <string name="no">No</string>
+    <string name="yes">Yes!</string>
 </resources>

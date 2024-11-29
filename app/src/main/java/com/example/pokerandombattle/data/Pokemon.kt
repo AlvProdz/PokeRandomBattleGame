@@ -7,25 +7,7 @@ data class Pokemon(
     @SerializedName ("sprites") var sprites: Sprite,
     @SerializedName ("types") var types: List<Type>,
     @SerializedName("damage_relations") var damageRelations: DamageRelations
-) {
-    fun getMainType() : TypeData {
-        return types[0].typeData
-    }
-    fun getSubType() : TypeData? {
-        return if (types.size > 1) {
-            types[1].typeData
-        } else {
-            null
-        }
-    }
-    fun getFrontImgUrl() : String {
-        return sprites.otherSprites.officialArtWork.frontImgURL
-    }
-    fun getBackImgUrl() : String {
-        return sprites.backImgURL
-    }
-
-}
+)
 data class Type (
     @SerializedName("slot") val slot: Int,
     @SerializedName("type") val typeData: TypeData
