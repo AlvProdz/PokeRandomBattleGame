@@ -97,14 +97,14 @@ class MainMenu : AppCompatActivity() {
     private fun newPlayerName(player: Player){
         val playerEditText = EditText(this)
         val dialog: AlertDialog = AlertDialog.Builder(this)
-            .setTitle("Create player name")
+            .setTitle(getString(R.string.create_player_name_dialogue_title))
             .setView(playerEditText)
-            .setPositiveButton("Save") { _, _ ->
+            .setPositiveButton(getString(R.string.save_dialogue_option)) { _, _ ->
                 player.name = String.valueOf(playerEditText.text)
                 playerDAO.update(player)
                 playGame(player)
             }
-            .setNegativeButton("Cancel", null)
+            .setNegativeButton(getString(R.string.cancel_dialogue_option), null)
             .create()
         dialog.show()
     }

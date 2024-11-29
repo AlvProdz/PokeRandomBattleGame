@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -38,7 +39,15 @@ class SelectTeamMembersActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         adapter = PokemonAdapter(pokemonList) { pokemonItem ->
-            goToCombat(pokemonItem)
+            val dialog: AlertDialog = AlertDialog.Builder(this)
+                .setTitle(getString(R.string.select_pokemon_confirmation_dialogue_title))
+                .setMessage(pokemonItem.name + getString(R.string.select_pokemon_message))
+                .setPositiveButton(R.string.yes) { _, _ ->
+                    goToCombat(pokemonItem)
+                }
+                .setNegativeButton(R.string.no , null)
+                .create()
+            dialog.show()
         }
         binding.recyclerViewSelectableTeamMembers.adapter = adapter
         binding.recyclerViewSelectableTeamMembers.layoutManager = GridLayoutManager(this, 3)
