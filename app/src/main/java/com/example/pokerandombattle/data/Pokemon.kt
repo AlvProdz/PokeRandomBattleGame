@@ -6,7 +6,7 @@ data class Pokemon(
     @SerializedName ("name") var name: String,
     @SerializedName ("sprites") var sprites: Sprite,
     @SerializedName ("types") var types: List<Type>,
-    var damageRelations: DamageRelations
+    @SerializedName("damage_relations") var damageRelations: DamageRelations
 ) {
     fun getMainType() : TypeData {
         return types[0].typeData

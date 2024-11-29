@@ -4,6 +4,15 @@
     <string name="button_help">\?</string>
     <string name="dialog_input_playername">Your name</string>
     <string name="touchToContinue">Touch to continue</string>
-    <string name="enemyPokemonAnnounce">"You enemy chooses: "</string>
-    <string name="yourPokemonAnnounce">You have chosen:</string>
+    <string name="enemyPokemonAnnounce">"The enemy chose "</string>
+    <string name="yourPokemonAnnounce">, i choose you!</string>
+    <string name="fight">Fight!</string>
+    <string name="victory">victory</string>
+    <string name="defeat">defeat</string>
+    <string name="draw">draw</string>
+    <string name="yourPokemonWonAnnounce">" has defeated the "</string>
+    <string name="yourPokemonWonReason">" because its type is stronger. Congratulations!"</string>
+    <string name="yourPokemonLostAnnounce">" has been defeated by the"</string>
+    <string name="yourPokemonLostReason">" enemy. Because the enemy pokemon type was stronger. Better luck next time!"</string>
+    <string name="DrawAnnounceReason">Both pokemon were really strong against each other. No one wins, but no one loses either. See you in the next combat!</string>
 </resources>
