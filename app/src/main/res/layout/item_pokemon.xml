@@ -7,33 +7,44 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardPokemon"
-        android:layout_width="138dp"
-        android:layout_height="153dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
         app:cardCornerRadius="20dp"
-        app:cardBackgroundColor="@color/pokemonSelector">
+        app:cardBackgroundColor="#3F51B5">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <ImageView
-                android:id="@+id/pokemonImageView"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPokemon"
+            android:layout_width="130dp"
+            android:layout_height="140dp"
+            android:layout_gravity="center"
+            app:cardBackgroundColor="@color/pokemonSelector"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="111dp"
-                android:contentDescription="TODO"
-                android:scaleType="centerCrop" />
-            <TextView
-                android:id="@+id/pokemonName"
-                android:layout_width="match_parent"
-                android:layout_height="44dp"
-                android:layout_gravity="center"
-                android:gravity="center_horizontal|center_vertical"
-                android:textAlignment="gravity"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="@color/black"
-                tools:text="Superhero name" />
-        </LinearLayout>
+                android:layout_height="140dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/pokemonImageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="111dp"
+                    android:contentDescription="TODO"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/pokemonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textAlignment="gravity"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="Pokemon" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
+
 </GridLayout>
